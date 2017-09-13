@@ -88,9 +88,8 @@ $(function() {
             loadFeed(0, done);
         });
 
-        it('At least an element is loaded', function(done) {
-            expect($('.feed .entry-link').length).toBeGreaterThan(0);
-            done();
+        it('At least an element is loaded', function() {
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
     });
 
@@ -100,8 +99,8 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        var feedContent = "";
-        var feedContentNew = "";
+        var feedContent;
+        var feedContentNew;
         var originalTimeout;
 
         beforeEach(function(done) {
@@ -120,10 +119,9 @@ $(function() {
             });
         });
 
-        it('Content actually changes when a new feed is loaded', function(done) {
-            expect($('.feed .entry-link').length).toBeGreaterThan(0);
+        it('Content actually changes when a new feed is loaded', function() {
+            expect($('.feed .entry').length).toBeGreaterThan(0);
             expect(feedContentNew).not.toBe(feedContent);
-            done();
         });
 
         afterEach(function() {
